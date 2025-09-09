@@ -1,22 +1,22 @@
+import { useEffect, useState, useRef } from 'react'
 import './style.css'
 import {FaTrashAlt, FaCircle} from 'react-icons/fa'
+import api from '../../services/api'
+
 
 function Home() {
+  const [users, setUsers] = useState([])
 
-  const users = [
-    {
-      id: 'fjskdlf',
-      name: 'Pedro',
-      age: 18,
-      email: 'pedro@gmail.com'
-    },
-    {
-      id: 'blabla',
-      name: 'blabla',
-      age: 18,
-      email: 'blabla@gmail.com'
-    }
-  ]
+  async function getUsuarios(){
+    const usersFromApi = await api.get('/users')
+    setUsers(usersFromApi.data)
+
+  }
+
+  useEffect(() => {
+    getUsuarios()
+  }, [])
+
   return (
     <div className="container">
       <form>
