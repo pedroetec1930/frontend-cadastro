@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState} from 'react'
 import './style.css'
 import {FaTrashAlt, FaCircle} from 'react-icons/fa'
 import api from '../../services/api'
